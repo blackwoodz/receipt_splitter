@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Attendance resource:
+  # CREATE
+  get "/attendances/new", :controller => "attendances", :action => "new"
+  post "/create_attendance", :controller => "attendances", :action => "create"
+
+  # READ
+  get "/attendances", :controller => "attendances", :action => "index"
+  get "/attendances/:id", :controller => "attendances", :action => "show"
+
+  # UPDATE
+  get "/attendances/:id/edit", :controller => "attendances", :action => "edit"
+  post "/update_attendance/:id", :controller => "attendances", :action => "update"
+
+  # DELETE
+  get "/delete_attendance/:id", :controller => "attendances", :action => "destroy"
+  #------------------------------
+
   # Routes for the Receipt resource:
   # CREATE
   get "/receipts/new", :controller => "receipts", :action => "new"

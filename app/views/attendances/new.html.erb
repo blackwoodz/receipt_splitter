@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @attendance.errors.any? %>
+  <% @attendance.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Attendance</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_attendance" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <div class="form-group">
+        <label for="event_id" class="control-label">
+          Event
+        </label>
+
+        <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @attendance.event_id %>">
+      </div>
+
+      <!-- Label and input for attendee_id -->
+      <div class="form-group">
+        <label for="attendee_id" class="control-label">
+          Attendee
+        </label>
+
+        <input type="text" id="attendee_id" name="attendee_id" placeholder="Attendee" class="form-control" value="<%= @attendance.attendee_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Attendance
+      </button>
+      or
+      <a href="/attendances">Cancel</a>
+    </form>
+  </div>
+</div>
