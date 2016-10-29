@@ -24,7 +24,7 @@
           Claimer
         </label>
 
-        <input type="text" id="claimer_id" name="claimer_id" placeholder="Claimer" class="form-control" value="<%= @receipt_line.claimer_id %>">
+        <%= select_tag(:claimer_id, options_from_collection_for_select(Attendance.all, :id, :event_id, @receipt_line.claimer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for description -->
