@@ -46,6 +46,32 @@
           </a>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_receipt" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <input type="hidden" name="event_id" value="<%= @event.id %>">
+
+      <!-- Label and input for payer_id -->
+      <input type="hidden" name="payer_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for receipt_img -->
+      <div class="form-group">
+        <label for="receipt_img" class="control-label">
+          Receipt img
+        </label>
+
+        <input type="text" id="receipt_img" name="receipt_img" placeholder="Receipt img" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Receipt
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -75,6 +101,29 @@
           </a>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_attendance" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <input type="hidden" name="event_id" value="<%= @event.id %>">
+
+      <!-- Label and input for attendee_id -->
+      <div class="form-group">
+        <label for="attendee_id" class="control-label">
+          Attendee
+        </label>
+
+        <%= select_tag(:attendee_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Attendance
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
