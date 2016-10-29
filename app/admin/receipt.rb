@@ -1,5 +1,7 @@
 ActiveAdmin.register Receipt do
 
+ permit_params :event_id, :payer_id, :receipt_img
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
