@@ -18,7 +18,7 @@
 
       <% @receipt_lines.each do |receipt_line| %>
       <tr>
-        <td><%= receipt_line.claimer_id %></td>
+        <td><%= receipt_line.claimer.event_id %></td>
         <td><%= receipt_line.description %></td>
         <td><%= receipt_line.line_value %></td>
         <td><%= receipt_line.receipt_id %></td>
