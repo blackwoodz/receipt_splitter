@@ -38,12 +38,14 @@
           <a href="/receipts/<%= receipt.id %>" class="btn btn-primary">
             Show
           </a>
-          <a href="/receipts/<%= receipt.id %>/edit" class="btn btn-warning">
-            Edit
-          </a>
-          <a href="/delete_receipt/<%= receipt.id %>" class="btn btn-danger" rel="nofollow">
-            Delete
-          </a>
+          <%if current_user == receipt.payer %>
+            <a href="/receipts/<%= receipt.id %>/edit" class="btn btn-warning">
+              Edit
+            </a>
+            <a href="/delete_receipt/<%= receipt.id %>" class="btn btn-danger" rel="nofollow">
+              Delete
+            </a>
+          <% end %>
         </li>
       <% end %>
     </ul>
@@ -67,12 +69,14 @@
           <a href="/attendances/<%= attendance.id %>" class="btn btn-primary">
             Show
           </a>
-          <a href="/attendances/<%= attendance.id %>/edit" class="btn btn-warning">
-            Edit
-          </a>
-          <a href="/delete_attendance/<%= attendance.id %>" class="btn btn-danger" rel="nofollow">
-            Delete
-          </a>
+          <%if current_user == attendance.attendee %>
+            <a href="/attendances/<%= attendance.id %>/edit" class="btn btn-warning">
+              Edit
+            </a>
+            <a href="/delete_attendance/<%= attendance.id %>" class="btn btn-danger" rel="nofollow">
+              Delete
+            </a>
+          <% end %>
         </li>
       <% end %>
     </ul>
