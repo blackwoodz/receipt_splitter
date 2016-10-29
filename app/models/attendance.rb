@@ -1,6 +1,10 @@
 class Attendance < ApplicationRecord
   # Direct associations
 
+  has_many   :receipt_lines,
+             :foreign_key => "claimer_id",
+             :dependent => :destroy
+
   belongs_to :event,
              :counter_cache => true
 
