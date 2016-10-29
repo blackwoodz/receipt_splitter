@@ -7,6 +7,10 @@ class Event < ApplicationRecord
   has_many   :receipts,
              :dependent => :destroy
 
+  belongs_to :organizer,
+             :class_name => "User",
+             :counter_cache => :organized_events_count
+
   # Indirect associations
 
   # Validations

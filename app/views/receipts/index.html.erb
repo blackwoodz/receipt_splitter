@@ -17,7 +17,7 @@
 
       <% @receipts.each do |receipt| %>
       <tr>
-        <td><%= receipt.event.created_at %></td>
+        <td><%= receipt.event.organizer_id %></td>
         <td><%= receipt.payer.email %></td>
         <td><img src='<%= receipt.receipt_img %>' class='img-responsive'></td>
         <td>

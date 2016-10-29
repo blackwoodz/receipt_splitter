@@ -5,18 +5,23 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
+      <dt>Organizer</dt>
+      <dd><%= @event.organizer_id %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/events" class="btn btn-primary">
         Back
       </a>
-      <a href="/events/<%= @event.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_event/<%= @event.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @event.organizer %>
+        <a href="/events/<%= @event.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_event/<%= @event.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

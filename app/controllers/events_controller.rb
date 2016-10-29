@@ -1,4 +1,14 @@
 class EventsController < ApplicationController
+  before_action :current_user_must_be_event_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_event_user
+    event = Event.find(params[:id])
+
+    unless current_user == event.organizer
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @events = Event.all
   end
@@ -13,6 +23,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new
+    @event.organizer_id = params[:organizer_id]
 
     if @event.save
       redirect_to "/events", :notice => "Event created successfully."
@@ -28,6 +39,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
+    @event.organizer_id = params[:organizer_id]
 
     if @event.save
       redirect_to "/events", :notice => "Event updated successfully."

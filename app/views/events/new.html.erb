@@ -18,6 +18,9 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for organizer_id -->
+      <input type="hidden" name="organizer_id" value="<%= current_user.id %>">
+
       <button class="btn btn-success">
         Create Event
       </button>

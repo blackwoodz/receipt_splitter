@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :organized_events,
+             :class_name => "Event",
+             :foreign_key => "organizer_id",
+             :dependent => :destroy
+
   has_many   :attendances,
              :foreign_key => "attendee_id",
              :dependent => :destroy
