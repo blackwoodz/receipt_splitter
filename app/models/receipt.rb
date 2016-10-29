@@ -1,6 +1,9 @@
 class Receipt < ApplicationRecord
   # Direct associations
 
+  has_many   :receipt_lines,
+             :dependent => :destroy
+
   belongs_to :event,
              :counter_cache => true
 
