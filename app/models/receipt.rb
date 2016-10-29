@@ -1,4 +1,6 @@
 class Receipt < ApplicationRecord
+  mount_uploader :receipt_img, ReceiptImgUploader
+
   # Direct associations
 
   has_many   :receipt_lines,

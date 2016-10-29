@@ -19,7 +19,7 @@
       <tr>
         <td><%= receipt.event.created_at %></td>
         <td><%= receipt.payer.email %></td>
-        <td><%= receipt.receipt_img %></td>
+        <td><img src='<%= receipt.receipt_img %>' class='img-responsive'></td>
         <td>
           <a href="/receipts/<%= receipt.id %>" class="btn btn-primary">Show</a>
           <a href="/receipts/<%= receipt.id %>/edit" class="btn btn-warning">Edit</a>
