@@ -21,7 +21,7 @@
         <td><%= receipt_line.claimer.event_id %></td>
         <td><%= receipt_line.description %></td>
         <td><%= receipt_line.line_value %></td>
-        <td><%= receipt_line.receipt_id %></td>
+        <td><%= receipt_line.receipt.event_id %></td>
         <td>
           <a href="/receipt_lines/<%= receipt_line.id %>" class="btn btn-primary">Show</a>
           <a href="/receipt_lines/<%= receipt_line.id %>/edit" class="btn btn-warning">Edit</a>
