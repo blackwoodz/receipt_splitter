@@ -33,7 +33,7 @@
           Attendee
         </label>
 
-        <input type="text" id="attendee_id" name="attendee_id" placeholder="Attendee" class="form-control" value="<%= @attendance.attendee_id %>">
+        <%= select_tag(:attendee_id, options_from_collection_for_select(User.all, :id, :email, @attendance.attendee_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
