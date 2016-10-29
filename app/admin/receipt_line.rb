@@ -1,5 +1,7 @@
 ActiveAdmin.register ReceiptLine do
 
+ permit_params :claimer_id, :description, :line_value, :receipt_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
