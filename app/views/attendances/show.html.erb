@@ -26,3 +26,32 @@
     </div>
   </div>
 </div>
+
+<!-- A Attendance has many receipt_lines -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Receipt_lines
+      </li>
+
+      <% @attendance.receipt_lines.each do |receipt_line| %>
+        <li class="list-group-item">
+          <a href="/receipt_lines/<%= receipt_line.id %>">
+            <%= receipt_line.description %>
+          </a>
+          <a href="/receipt_lines/<%= receipt_line.id %>" class="btn btn-primary">
+            Show
+          </a>
+          <a href="/receipt_lines/<%= receipt_line.id %>/edit" class="btn btn-warning">
+            Edit
+          </a>
+          <a href="/delete_receipt_line/<%= receipt_line.id %>" class="btn btn-danger" rel="nofollow">
+            Delete
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

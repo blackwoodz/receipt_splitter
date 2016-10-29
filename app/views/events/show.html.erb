@@ -20,3 +20,61 @@
     </div>
   </div>
 </div>
+
+<!-- A Event has many receipts -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Receipts
+      </li>
+
+      <% @event.receipts.each do |receipt| %>
+        <li class="list-group-item">
+          <a href="/receipts/<%= receipt.id %>">
+            <%= receipt.event_id %>
+          </a>
+          <a href="/receipts/<%= receipt.id %>" class="btn btn-primary">
+            Show
+          </a>
+          <a href="/receipts/<%= receipt.id %>/edit" class="btn btn-warning">
+            Edit
+          </a>
+          <a href="/delete_receipt/<%= receipt.id %>" class="btn btn-danger" rel="nofollow">
+            Delete
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Event has many attendances -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Attendances
+      </li>
+
+      <% @event.attendances.each do |attendance| %>
+        <li class="list-group-item">
+          <a href="/attendances/<%= attendance.id %>">
+            <%= attendance.event_id %>
+          </a>
+          <a href="/attendances/<%= attendance.id %>" class="btn btn-primary">
+            Show
+          </a>
+          <a href="/attendances/<%= attendance.id %>/edit" class="btn btn-warning">
+            Edit
+          </a>
+          <a href="/delete_attendance/<%= attendance.id %>" class="btn btn-danger" rel="nofollow">
+            Delete
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
