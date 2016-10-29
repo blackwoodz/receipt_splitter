@@ -27,14 +27,8 @@
         <%= select_tag(:event_id, options_from_collection_for_select(Event.all, :id, :created_at, @receipt.event_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for payer_id -->
-      <div class="form-group">
-        <label for="payer_id" class="control-label">
-          Payer
-        </label>
-
-        <%= select_tag(:payer_id, options_from_collection_for_select(User.all, :id, :email, @receipt.payer_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for receipt_img -->
       <div class="form-group">
