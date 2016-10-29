@@ -17,7 +17,7 @@
 
       <% @receipts.each do |receipt| %>
       <tr>
-        <td><%= receipt.event_id %></td>
+        <td><%= receipt.event.created_at %></td>
         <td><%= receipt.payer_id %></td>
         <td><%= receipt.receipt_img %></td>
         <td>
