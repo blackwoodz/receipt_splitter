@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :receipts,
+             :foreign_key => "payer_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
