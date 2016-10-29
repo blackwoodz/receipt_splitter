@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @receipt.errors.any? %>
+  <% @receipt.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Receipt #<%= @receipt.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_receipt/<%= @receipt.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <div class="form-group">
+        <label for="event_id" class="control-label">
+          Event
+        </label>
+
+        <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @receipt.event_id %>">
+      </div>
+
+      <!-- Label and input for payer_id -->
+      <div class="form-group">
+        <label for="payer_id" class="control-label">
+          Payer
+        </label>
+
+        <input type="text" id="payer_id" name="payer_id" placeholder="Payer" class="form-control" value="<%= @receipt.payer_id %>">
+      </div>
+
+      <!-- Label and input for receipt_img -->
+      <div class="form-group">
+        <label for="receipt_img" class="control-label">
+          Receipt img
+        </label>
+
+        <input type="text" id="receipt_img" name="receipt_img" placeholder="Receipt img" class="form-control" value="<%= @receipt.receipt_img %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Receipt
+      </button>
+      or
+      <a href="/receipts/<%= @receipt.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

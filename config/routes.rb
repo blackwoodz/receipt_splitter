@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Receipt resource:
+  # CREATE
+  get "/receipts/new", :controller => "receipts", :action => "new"
+  post "/create_receipt", :controller => "receipts", :action => "create"
+
+  # READ
+  get "/receipts", :controller => "receipts", :action => "index"
+  get "/receipts/:id", :controller => "receipts", :action => "show"
+
+  # UPDATE
+  get "/receipts/:id/edit", :controller => "receipts", :action => "edit"
+  post "/update_receipt/:id", :controller => "receipts", :action => "update"
+
+  # DELETE
+  get "/delete_receipt/:id", :controller => "receipts", :action => "destroy"
+  #------------------------------
+
   # Routes for the Event resource:
   # CREATE
   get "/events/new", :controller => "events", :action => "new"
