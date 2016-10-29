@@ -16,7 +16,7 @@
 
       <% @attendances.each do |attendance| %>
       <tr>
-        <td><%= attendance.event.created_at %></td>
+        <td><%= attendance.event.organizer_id %></td>
         <td><%= attendance.attendee.email %></td>
         <td>
           <a href="/attendances/<%= attendance.id %>" class="btn btn-primary">Show</a>
