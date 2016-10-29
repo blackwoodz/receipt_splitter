@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @receipt_line.errors.any? %>
+  <% @receipt_line.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Receipt Line #<%= @receipt_line.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_receipt_line/<%= @receipt_line.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for claimer_id -->
+      <div class="form-group">
+        <label for="claimer_id" class="control-label">
+          Claimer
+        </label>
+
+        <input type="text" id="claimer_id" name="claimer_id" placeholder="Claimer" class="form-control" value="<%= @receipt_line.claimer_id %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @receipt_line.description %>">
+      </div>
+
+      <!-- Label and input for line_value -->
+      <div class="form-group">
+        <label for="line_value" class="control-label">
+          Line value
+        </label>
+
+        <input type="text" id="line_value" name="line_value" placeholder="Line value" class="form-control" value="<%= @receipt_line.line_value %>">
+      </div>
+
+      <!-- Label and input for receipt_id -->
+      <div class="form-group">
+        <label for="receipt_id" class="control-label">
+          Receipt
+        </label>
+
+        <input type="text" id="receipt_id" name="receipt_id" placeholder="Receipt" class="form-control" value="<%= @receipt_line.receipt_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Receipt Line
+      </button>
+      or
+      <a href="/receipt_lines/<%= @receipt_line.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

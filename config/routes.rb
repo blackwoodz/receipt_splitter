@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Receipt_line resource:
+  # CREATE
+  get "/receipt_lines/new", :controller => "receipt_lines", :action => "new"
+  post "/create_receipt_line", :controller => "receipt_lines", :action => "create"
+
+  # READ
+  get "/receipt_lines", :controller => "receipt_lines", :action => "index"
+  get "/receipt_lines/:id", :controller => "receipt_lines", :action => "show"
+
+  # UPDATE
+  get "/receipt_lines/:id/edit", :controller => "receipt_lines", :action => "edit"
+  post "/update_receipt_line/:id", :controller => "receipt_lines", :action => "update"
+
+  # DELETE
+  get "/delete_receipt_line/:id", :controller => "receipt_lines", :action => "destroy"
+  #------------------------------
+
   # Routes for the Attendance resource:
   # CREATE
   get "/attendances/new", :controller => "attendances", :action => "new"

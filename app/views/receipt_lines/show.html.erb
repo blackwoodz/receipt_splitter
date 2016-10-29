@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Receipt Line #<%= @receipt_line.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Claimer</dt>
+      <dd><%= @receipt_line.claimer_id %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @receipt_line.description %></dd>
+
+      <dt>Line value</dt>
+      <dd><%= @receipt_line.line_value %></dd>
+
+      <dt>Receipt</dt>
+      <dd><%= @receipt_line.receipt_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/receipt_lines" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/receipt_lines/<%= @receipt_line.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_receipt_line/<%= @receipt_line.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
