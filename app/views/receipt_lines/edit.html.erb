@@ -51,7 +51,7 @@
           Receipt
         </label>
 
-        <input type="text" id="receipt_id" name="receipt_id" placeholder="Receipt" class="form-control" value="<%= @receipt_line.receipt_id %>">
+        <%= select_tag(:receipt_id, options_from_collection_for_select(Receipt.all, :id, :event_id, @receipt_line.receipt_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
