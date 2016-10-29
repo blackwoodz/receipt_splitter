@@ -18,7 +18,7 @@
       <% @receipts.each do |receipt| %>
       <tr>
         <td><%= receipt.event.created_at %></td>
-        <td><%= receipt.payer_id %></td>
+        <td><%= receipt.payer.email %></td>
         <td><%= receipt.receipt_img %></td>
         <td>
           <a href="/receipts/<%= receipt.id %>" class="btn btn-primary">Show</a>
